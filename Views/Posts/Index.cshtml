@@ -1,14 +1,85 @@
-﻿@model IEnumerable<TheBlogProject.Models.Post>
+﻿@*@model IEnumerable<TheBlogProject.Models.Post>*@
+
+@using X.PagedList
+@using X.PagedList.Mvc.Core
+@using X.PagedList.Web.Common
+
+@model IPagedList<Post>
 
 @using TheBlogProject.Services.Interfaces
 @inject IImageService imageService
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "List of Posts";
 }
 
-<h1>Index</h1>
+     
+         <!-- blog-area -->
+                <section class="blog-area pt-60 pb-60">
+                    <div class="container">
+                        <div class="author-inner-wrap">
+                            <div class="row justify-content-center">
 
+                @if (Model.Any())
+                {
+
+
+                    <div class="col-70">
+                        <div class="weekly-post-item-wrap-three">
+                            <div class="row">
+                                @foreach (var post in Model)
+                                {
+                                    <!-- START -->
+                                    <div class="col-md-6">
+                                        <div class="weekly-post-three">
+                                            <div class="weekly-post-thumb">
+                                                <a asp-controller="Posts" asp-action="Details" asp-route-id="@post.Id"><img src="@imageService.DecodeImage(post.ImageData,post.ImageType)" alt=""></a>
+                                                <a asp-controller="Categories" asp-action="Category" asp-route-id="@post.CategoryId" class="post-tag">@post.Category.title</a>
+                                            </div>
+                                            <div class="weekly-post-content">
+                                                <h2 class="post-title"><a asp-controller="Posts" asp-action="Details" asp-route-id="@post.Id"> @post.Title </a></h2>
+                                                <div class="blog-post-meta">
+                                                    <ul class="list-wrap">
+                                                        <li><i class="flaticon-calendar"></i>@post.Created?.ToString("dd/mm/yyyy")</li>
+
+                                                    </ul>
+                                                </div>
+                                                <p>@post.Abstract</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- END -->
+                                }
+                            </div>
+                        </div>
+
+                        @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }),
+                            new PagedListRenderOptions
+                            {
+                                LiElementClasses = new string[] { "page-item" },
+                                PageClasses = new string[] { "page-link" },
+                            })
+
+
+
+                    </div>
+                } else
+                {
+                        <p> Not enough posts to display.  </p>
+                }
+            </div>
+                        </div>
+                    </div>
+                </section>
+            <!-- blog-area-end -->
+
+      @*  }else
+        {
+               <p>   Not enough posts to display.   </p>
+
+        }*@
+
+@*
 <p>
     <a asp-action="Create">Create New</a>
 </p>
@@ -49,3 +120,4 @@
 }
     </tbody>
 </table>
+*@

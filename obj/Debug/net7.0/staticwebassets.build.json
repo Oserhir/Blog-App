@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "DOX8JuosNIaWAg9A5OVO+YUGrqHS2G/K42Drg3tJN/I=",
+  "Hash": "OMsfGyahi89fAq1q7VGgc08kjVXagmuLNQjmMxjEO2w=",
   "Source": "TheBlogProject",
   "BasePath": "_content/TheBlogProject",
   "Mode": "Default",
@@ -1122,6 +1122,23 @@
       "OriginalItemSpec": "wwwroot\\css\\bs.css"
     },
     {
+      "Identity": "C:\\Users\\YUSSEF\\source\\repos\\TheBlogProject\\wwwroot\\css\\custom404.css",
+      "SourceId": "TheBlogProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\YUSSEF\\source\\repos\\TheBlogProject\\wwwroot\\",
+      "BasePath": "_content/TheBlogProject",
+      "RelativePath": "css/custom404.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\custom404.css"
+    },
+    {
       "Identity": "C:\\Users\\YUSSEF\\source\\repos\\TheBlogProject\\wwwroot\\css\\default.css",
       "SourceId": "TheBlogProject",
       "SourceType": "Discovered",
@@ -1700,6 +1717,40 @@
       "OriginalItemSpec": "wwwroot\\fonts\\flaticon.woff2"
     },
     {
+      "Identity": "C:\\Users\\YUSSEF\\source\\repos\\TheBlogProject\\wwwroot\\images\\categories_shape01.png",
+      "SourceId": "TheBlogProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\YUSSEF\\source\\repos\\TheBlogProject\\wwwroot\\",
+      "BasePath": "_content/TheBlogProject",
+      "RelativePath": "images/categories_shape01.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\categories_shape01.png"
+    },
+    {
+      "Identity": "C:\\Users\\YUSSEF\\source\\repos\\TheBlogProject\\wwwroot\\images\\categories_shape02.png",
+      "SourceId": "TheBlogProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\YUSSEF\\source\\repos\\TheBlogProject\\wwwroot\\",
+      "BasePath": "_content/TheBlogProject",
+      "RelativePath": "images/categories_shape02.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\categories_shape02.png"
+    },
+    {
       "Identity": "C:\\Users\\YUSSEF\\source\\repos\\TheBlogProject\\wwwroot\\images\\home-bg.jpg",
       "SourceId": "TheBlogProject",
       "SourceType": "Discovered",
@@ -1749,6 +1800,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\keyboard-bg.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\YUSSEF\\source\\repos\\TheBlogProject\\wwwroot\\images\\logo-ysf.jpeg",
+      "SourceId": "TheBlogProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\YUSSEF\\source\\repos\\TheBlogProject\\wwwroot\\",
+      "BasePath": "_content/TheBlogProject",
+      "RelativePath": "images/logo-ysf.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\logo-ysf.jpeg"
     },
     {
       "Identity": "C:\\Users\\YUSSEF\\source\\repos\\TheBlogProject\\wwwroot\\images\\mac-bg.jpg",

@@ -25,6 +25,11 @@ namespace TheBlogProject.Services
             return await _context.Categories.ToListAsync();
         }
 
+        public async Task<IQueryable<Category>> GetCategoriesAsync()
+        {
+            return  _context.Categories;
+        }
+
         public async Task<Category> GetCategoryByIdAsync(int CategoryId)
         {
             Category category = await _context.Categories

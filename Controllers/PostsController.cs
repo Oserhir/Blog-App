@@ -46,8 +46,8 @@ namespace TheBlogProject.Controllers
         {
             ViewData["SearchTerm"] = searchTerm;
 
-            var pageNumber = page ?? 1; // Default to the first page if none is specified
-            var pageSize = 2;
+            var pageNumber = page ?? 1; 
+            var pageSize = 6;
             var posts =  _blogSearchService.Search(searchTerm);
 
             var count = posts.Count();
@@ -59,10 +59,20 @@ namespace TheBlogProject.Controllers
         #region // GET: Posts
        
         // GET: Posts
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int? page)
         {
-            var applicationDbContext = _context.Posts.Include(p => p.PostUser);
-            return View(await applicationDbContext.ToListAsync());
+            // var applicationDbContext = _context.Posts.Include(p => p.PostUser);
+
+            var pageNumber = page ?? 1;
+            var pageSize = 10;
+
+            var posts = _context.Posts
+                .Include(p => p.PostUser)
+                .Include(p => p.Category)
+                .ToPagedListAsync(pageNumber, pageSize);
+
+            return View(await posts);
+
         }
         #endregion
 

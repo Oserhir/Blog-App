@@ -23,7 +23,34 @@ namespace TheBlogProject.Services
 
         public async Task<List<Post>> GetAllPostAsync()
         {
-            List<Post> post = await _context.Posts.ToListAsync();
+            List<Post> post = await _context.Posts
+                .Include(p => p.Tags)
+                .Include(p => p.Category)
+                .Include(p => p.PostUser)
+                .Include(p => p.Comments)
+                .ToListAsync();
+            return post;
+        }
+
+        public IQueryable<Post> GetLatestPostsAsync()
+        {
+            // This method now returns an IQueryable<Post>
+            return _context.Posts
+                .Include(p => p.Tags)
+                .Include(p => p.Category)
+                .Include(p => p.PostUser)
+                .Include(p => p.Comments)
+                .OrderByDescending(p => p.Created);
+        }
+
+        public async Task<List<Post>> GetAllPostAsync(int count)
+        {
+            List<Post> post = await _context.Posts.Take(count)
+                .Include(p => p.Tags)
+                .Include(p => p.Category)
+                .Include(p => p.PostUser)
+                .Include(p => p.Comments)
+                .ToListAsync();
             return post;
         }
 
@@ -51,6 +78,12 @@ namespace TheBlogProject.Services
         {
             _context.Update(post);
             await _context.SaveChangesAsync();
+        }
+
+        public async Task<List<Post>> GetMostPopularPostsBasedOnComments()
+        {
+            var posts = await _context.Posts.OrderByDescending(p => p.Comments.Count).ToListAsync();
+            return posts;
         }
     }
 }

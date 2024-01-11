@@ -211,13 +211,14 @@ namespace TheBlogProject.Controllers
         [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Categories == null)
+            if (id == null )
             {
                 return NotFound();
             }
 
             var category = await _context.Categories
                 .FirstOrDefaultAsync(m => m.Id == id);
+
             if (category == null)
             {
                 return NotFound();
@@ -260,7 +261,14 @@ namespace TheBlogProject.Controllers
         public async Task<IActionResult> Category(int? id, int? page)
         {
 
-            if (id == null)
+            if (id == null )
+            {
+                return NotFound();
+            }
+
+            Category category = await _categoryService.GetCategoryByIdAsync(id.Value);
+
+            if (category == null)
             {
                 return NotFound();
             }

@@ -17,6 +17,10 @@
       "PackagePath": "staticwebassets\\css\\bs.css"
     },
     {
+      "Id": "C:\\Users\\YUSSEF\\source\\repos\\TheBlogProject\\wwwroot\\css\\custom404.css",
+      "PackagePath": "staticwebassets\\css\\custom404.css"
+    },
+    {
       "Id": "C:\\Users\\YUSSEF\\source\\repos\\TheBlogProject\\wwwroot\\css\\default.css",
       "PackagePath": "staticwebassets\\css\\default.css"
     },
@@ -157,12 +161,24 @@
       "PackagePath": "staticwebassets\\images\\Jenny.png"
     },
     {
+      "Id": "C:\\Users\\YUSSEF\\source\\repos\\TheBlogProject\\wwwroot\\images\\categories_shape01.png",
+      "PackagePath": "staticwebassets\\images\\categories_shape01.png"
+    },
+    {
+      "Id": "C:\\Users\\YUSSEF\\source\\repos\\TheBlogProject\\wwwroot\\images\\categories_shape02.png",
+      "PackagePath": "staticwebassets\\images\\categories_shape02.png"
+    },
+    {
       "Id": "C:\\Users\\YUSSEF\\source\\repos\\TheBlogProject\\wwwroot\\images\\home-bg.jpg",
       "PackagePath": "staticwebassets\\images\\home-bg.jpg"
     },
     {
       "Id": "C:\\Users\\YUSSEF\\source\\repos\\TheBlogProject\\wwwroot\\images\\keyboard-bg.jpg",
       "PackagePath": "staticwebassets\\images\\keyboard-bg.jpg"
+    },
+    {
+      "Id": "C:\\Users\\YUSSEF\\source\\repos\\TheBlogProject\\wwwroot\\images\\logo-ysf.jpeg",
+      "PackagePath": "staticwebassets\\images\\logo-ysf.jpeg"
     },
     {
       "Id": "C:\\Users\\YUSSEF\\source\\repos\\TheBlogProject\\wwwroot\\images\\mac-bg.jpg",

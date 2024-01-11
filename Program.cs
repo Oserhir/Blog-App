@@ -53,10 +53,20 @@ if (app.Environment.IsDevelopment())
 }
 else
 {
-    app.UseExceptionHandler("/Home/Error");
+    app.UseExceptionHandler("/Home/Error"); // is a middleware configuration that helps manage how your application handles exceptions.
+   
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
+
+app.UseStatusCodePagesWithReExecute("/Error/{0}"); //
+
+app.MapFallback(context =>
+{
+    context.Response.Redirect("/Error/404");
+    return Task.CompletedTask;
+});
+
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();

@@ -1,7 +1,310 @@
-﻿
+﻿@model TheBlogProject.ViewModels.HomePageViewModel
+
+
+@using TheBlogProject.Services.Interfaces
+@inject IImageService imageService
 
 @{
     ViewData["Title"] = "Home Page";
 }
 
+<!-- main-area -->
+        <main class="fix">
 
+               <!-- banner-post-area -->
+            <section class="banner-post-area-four pt-60 ">
+                <div class="container custom-container">
+                    <div class="row">
+
+                     <!---->
+              @if(Model.Posts.Any()){ 
+                @foreach(var post in Model.Posts.Take(3))
+                {
+                    
+                <div class="col-lg-4">
+                            <div class="banner-post-four">
+                                <div class="banner-post-thumb-four">
+                                    <a asp-controller="Posts" asp-action ="Details" asp-route-id="@post.Id" ><img src="@imageService.DecodeImage(post.ImageData,post.ImageType)" alt=""></a>
+                                </div>
+                                <div class="banner-post-content-four">
+                                        <a asp-controller="Categories" asp-action ="Category" asp-route-id="@post.Category.Id" class="post-tag">@post.Category.title</a>
+                                        <h2 class="post-title bold-underline"><a asp-controller="Posts" asp-action ="Details" asp-route-id="@post.Id"> @post.Title </a></h2>
+                                    <div class="blog-post-meta white-blog-meta">
+                                        <ul class="list-wrap">
+                                                <li><i class="flaticon-user"></i>by<a href="author.html">@post.PostUser.FullName</a></li>
+                                                <li><i class="flaticon-calendar"></i>@post.Created?.ToString("dd/mm/yyyy")</li>
+                                            
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }else
+                {
+                         <p>Not enough posts to display.</p>
+                }
+                <!---->
+                    </div>
+                </div>
+            </section>
+            <!-- banner-post-area-end -->
+
+            
+
+            <!-- latest-post-area -->
+            <section class="latest-post-area pt-60 pb-60">
+                <div class="container">
+                    <div class="latest-post-inner-wrap">
+                        <div class="row">
+                            <div class="col-70">
+                                <div class="section-title-wrap mb-30">
+                                    <div class="section-title">
+                                        <h2 class="title">Latest Posts</h2>
+                                    </div>
+                                    <div class="view-all-btn">
+                                        <a asp-controller="Posts" asp-action="Index" class="link-btn">View All
+                                            <span class="svg-icon">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" fill="none">
+                                                    <path d="M1.07692 10L0 8.92308L7.38462 1.53846H0.769231V0H10V9.23077H8.46154V2.61538L1.07692 10Z" fill="currentColor" />
+                                                    <path d="M1.07692 10L0 8.92308L7.38462 1.53846H0.769231V0H10V9.23077H8.46154V2.61538L1.07692 10Z" fill="currentColor" />
+                                                </svg>
+                                            </span>
+                                        </a>
+                                    </div>
+                                    <div class="section-title-line"></div>
+                                </div>
+
+                                
+                                    @if(Model.LatestPosts.Any())
+                                    {
+                                        var firstPost = Model.LatestPosts[0];
+                                        
+
+                                             <div class="latest-post-item-wrap">
+                                        <div class="row">
+                                            <!--1-->
+                                            <div class="col-66">
+                                                <div class="featured-post-item latest-post-item big-post">
+                                                    <div class="featured-post-thumb">
+                                                       <a asp-controller="Posts" asp-action="Details" asp-route-id="@firstPost.Id"><img src="@imageService.DecodeImage(firstPost.ImageData,firstPost.ImageType)" alt=""></a>
+                                                    </div>
+                                                    <div class="featured-post-content">
+                                                        <a  asp-controller="Categories" asp-action="Category" asp-route-id="@firstPost.CategoryId" class="post-tag">@firstPost.Category.title</a>
+                                                                <h2 class="post-title bold-underline"><a  asp-controller="Posts" asp-action="Details" asp-route-id="@firstPost.Id">@firstPost.Title</a></h2>
+                                                        <div class="blog-post-meta">
+                                                            <ul class="list-wrap">
+                                                                    <li><i class="flaticon-user"></i>by<a href="author.html">@firstPost.PostUser.FirstName</a></li>
+                                                                    <li><i class="flaticon-calendar"></i>@firstPost.Created?.ToString("dd/mm/yyyy")</li>
+                                                            </ul>
+                                                        </div>
+                                                  
+                                                    </div>
+                                                </div>
+                                            </div>
+                                              <!--1-->
+
+                                              <!--2-->
+                                            <div class="col-34">
+                                                <div class="latest-post-wrap">
+                                                    <!---->
+                                            @if (Model.LatestPosts.Count > 1) { 
+                                                    @foreach(var post in Model.LatestPosts.Skip(1).Take(2) )
+                                                    {
+                                                
+                                                        <div class="featured-post-item latest-post-item small-post">
+                                                                    <div class="featured-post-thumb">
+                                                                             <a asp-controller="Posts" asp-action="Details" asp-route-id="@post.Id"><img src="@imageService.DecodeImage(post.ImageData,post.ImageType)" alt=""></a>
+                                                                    </div>
+                                                                    <div class="featured-post-content">
+                                                                               <a asp-controller="Categories" asp-action="Category" asp-route-id="@post.CategoryId" class="post-tag">@post.Category.title</a>
+                                                                                 <h2 class="post-title"><a asp-controller="Posts" asp-action="Details" asp-route-id="@post.Id">@post.Title</a>
+                                                                        </h2>
+                                                                        <div class="blog-post-meta">
+                                                                            <ul class="list-wrap">
+                                                                                            <li><i class="flaticon-user"></i>by<a href="author.html">@post.PostUser.FirstName</a></li>
+                                                                                            <li><i class="flaticon-calendar"></i>@post.Created?.ToString("dd/mm/yyyy")</li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                        }
+                                            }
+                                                     <!---->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                           
+                            
+                                    }
+                                    else
+                                    {
+                                        <p>Not enough posts to display.</p>
+                                    }
+
+
+
+
+                                <!--END-->
+                            </div>
+
+                            <div class="col-30">
+                                <div class="sidebar-wrap">
+                                    <div class="sidebar-widget">
+
+                                        <partial name="_AboutMe" />
+
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- latest-post-area-end -->
+
+            <!-- categories-area -->
+            <section class="categories-area">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-6">
+                            <div class="section-title section-title-two text-center mb-30">
+                                <h2 class="title">Our Top Categories</h2>
+                                @*<p>Browned butter and brown sugar caramelly goodness, crispy edges thick and soft centers and melty little puddles</p>*@
+                            </div>
+                        </div>
+                    </div>
+                    <div class="categories-item-wrap">
+                        <div class="row justify-content-center">
+
+                     @if( Model.Categories.Any() ){ 
+                            @foreach(var category in Model.Categories)
+                            {
+                 
+                              <div class="col-xl-2 col-lg-3 col-md-4 col-6">
+                                     <div class="categories-item">
+                                        <div class="categories-img">
+                                            <a asp-controller="Categories" asp-action="Category"
+                                            asp-route-id="@category.Id"><img src="@imageService.DecodeImage(category.ImageData,category.ImageType)" alt=""></a>
+                                        </div>
+                                        <div class="categories-content">
+                                            <a asp-controller="Categories" 
+                                                asp-action="Category"
+                                            asp-route-id="@category.Id">@category.title</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                        }
+                    }else
+                    {
+                            <p>Not enough categories to display.</p>
+                    }
+
+                        </div>
+                    </div>
+                </div>
+                <div class="categories-shape-wrap">
+                    <img src="~/images/categories_shape01.png" alt="">
+                    <img src="~/images/categories_shape02.png" alt="">
+                </div>
+            </section>
+            <!-- categories-area-end -->
+
+            <!-- Most Popular Posts-area -->
+            <section class="recipe-area pt-70 pb-40">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="section-title-wrap mb-30">
+                                <div class="section-title">
+                                    <h2 class="title">Most Popular Posts</h2>
+                                </div>
+                                <div class="view-all-btn">
+                                    <a  asp-controller="Posts" asp-action="Index" class="link-btn">View All
+                                        <span class="svg-icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" fill="none">
+                                                <path d="M1.07692 10L0 8.92308L7.38462 1.53846H0.769231V0H10V9.23077H8.46154V2.61538L1.07692 10Z" fill="currentColor" />
+                                                <path d="M1.07692 10L0 8.92308L7.38462 1.53846H0.769231V0H10V9.23077H8.46154V2.61538L1.07692 10Z" fill="currentColor" />
+                                            </svg>
+                                        </span>
+                                    </a>
+                                </div>
+                                <div class="section-title-line"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+
+
+                        @if( Model.PopularPosts.Any()  )
+                        {
+                             var firstposts = Model.PopularPosts[0];
+
+                            <div class="col-xl-6">
+                                <div class="ta-overlay-post">
+                                    <div class="overlay-post-thumb">
+                                        <a  asp-controller="Posts" asp-action="Details" asp-route-id="@firstposts.Id" ><img src="@imageService.DecodeImage(firstposts.ImageData,firstposts.ImageType)" alt=""></a>
+                                    </div>
+                                    <div class="overlay-post-content">
+                                        <a asp-controller="Categories" asp-action="Category" 
+                                             asp-route-id="@firstposts.CategoryId" 
+                                             class="post-tag">@firstposts.Category.title</a>
+                                        <h2 class="post-title"><a asp-controller="Posts" asp-action="Details" asp-route-id="@firstposts.Id">@firstposts.Title</a></h2>
+                                        <div class="blog-post-meta">
+                                            <ul class="list-wrap">
+                                                <li><i class="flaticon-user"></i>by<a href="author.html"> @firstposts.PostUser.FirstName </a></li>
+                                                <li><i class="flaticon-calendar"></i>@firstposts.Created?.ToString("dd/mm/yyyy")</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                                <div class="col-xl-6">
+                                 <!---->
+                                    @if (Model.PopularPosts.Count > 1)
+                                    {
+                                       @foreach (var post in Model.PopularPosts.Skip(1).Take(3))
+                                        {
+                                         <div class="ta-horizontal-post">
+                                                    <div class="horizontal-post-thumb">
+                                                        <a asp-controller="Posts" asp-action="Details" asp-route-id="@post.Id"><img src="@imageService.DecodeImage(post.ImageData,post.ImageType)" alt=""></a>
+                                                    </div>
+                                                    <div class="horizontal-post-content">
+                                                        <a  asp-controller="Categories" asp-action="Category" asp-route-id="@post.CategoryId" class="post-tag">@post.Category.title</a>
+                                                                    <h2 class="post-title"><a asp-controller="Posts" asp-action="Details" asp-route-id="@post.CategoryId">  @post.Title  </a></h2>
+                                                        <div class="blog-post-meta">
+                                                            <ul class="list-wrap">
+                                                                <li><i class="flaticon-user"></i>by<a href="author.html"> @post.PostUser.FirstName </a></li>
+                                                                <li><i class="flaticon-calendar"></i>@post.Created?.ToString("dd/mm/yyyy")</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                         </div>
+                                         <!---->
+                                        }
+                                   }
+                            </div>
+                     
+                        <!--end col-->
+
+                        }else
+                        {
+                                <p>Not enough posts to display.</p>
+                        }
+
+                    </div>
+                </div>
+            </section>
+            <!-- Most Popular Posts-area-end -->
+
+            
+
+            
+            
+
+        </main>
+        <!-- main-area-end -->
