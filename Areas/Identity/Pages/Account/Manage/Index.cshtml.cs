@@ -37,6 +37,7 @@ namespace TheBlogProject.Areas.Identity.Pages.Account.Manage
         public string Username { get; set; }
 
         public string CurrentImage { get; set; }
+        public string Bio { get; set; }
         /// <summary>
         ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
         ///     directly from your code. This API may change or be removed in future releases.
@@ -65,23 +66,31 @@ namespace TheBlogProject.Areas.Identity.Pages.Account.Manage
             [Display(Name = "Phone number")]
             public string PhoneNumber { get; set; }
 
+            [Display(Name = "Bio")]
+            public string Bio { get; set; } //////////
+
             public IFormFile Image { get; set; }
         }
 
+        // 2
         private async Task LoadAsync(BTUser user)
         {
             var userName = await _userManager.GetUserNameAsync(user);
             var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
+
+            Bio = user.Bio;
 
             Username = userName;
             CurrentImage = _imageService.DecodeImage(user.ImageData, user.ImageType);
 
             Input = new InputModel
             {
-                PhoneNumber = phoneNumber
+                PhoneNumber = phoneNumber,
+                Bio = Bio
             };
         }
 
+        // #1
         public async Task<IActionResult> OnGetAsync()
         {
             var user = await _userManager.GetUserAsync(User);
@@ -97,6 +106,7 @@ namespace TheBlogProject.Areas.Identity.Pages.Account.Manage
         public async Task<IActionResult> OnPostAsync()
         {
             var user = await _userManager.GetUserAsync(User);
+
             if (user == null)
             {
                 return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
@@ -118,14 +128,21 @@ namespace TheBlogProject.Areas.Identity.Pages.Account.Manage
                     return RedirectToPage();
                 }
             }
+            if (Input.Bio != user.Bio)
+            {
+                user.Bio = Input.Bio;
+            }
+                
 
             // If the user selects a new image, then update profile
             if (Input.Image is not null)
             {
                 user.ImageData = await _imageService.EncodeImageAsync(Input.Image);
                 user.ImageType = _imageService.ContentType(Input.Image);
-                await _userManager.UpdateAsync(user);
+               // await _userManager.UpdateAsync(user);
             }
+
+            await _userManager.UpdateAsync(user);
 
             await _signInManager.RefreshSignInAsync(user);
             StatusMessage = "Your profile has been updated";

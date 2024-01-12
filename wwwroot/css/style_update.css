@@ -55,8 +55,8 @@
 :root {
     --tg-body-font-family: 'Inter', sans-serif;
     --tg-heading-font-family: 'Manrope', sans-serif;
-    --tg-primary-color: #3fff00; /*Primary #F4796C;*/
-    --tg-secondary-color: #183354; /*Backround* #183354;*/
+    --tg-primary-color: #212529;
+    --tg-secondary-color: #183354;
     --tg-body-font-color: #545E69;
     --tg-heading-font-color: #183354;
     --tg-paragraph-color: #545E69;
@@ -270,7 +270,7 @@ label {
 }
 
 /* Bootstrap 5 */
-    .container {
+.container {
     padding-left: 15px;
     padding-right: 15px;
 }
@@ -6578,5 +6578,3 @@ label {
 [tg-theme=dark] #fg-loader {
     color: var(--tg-white);
 }
-
-

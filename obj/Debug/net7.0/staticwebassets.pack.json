@@ -65,6 +65,10 @@
       "PackagePath": "staticwebassets\\css\\style.css"
     },
     {
+      "Id": "C:\\Users\\YUSSEF\\source\\repos\\TheBlogProject\\wwwroot\\css\\style_update.css",
+      "PackagePath": "staticwebassets\\css\\style_update.css"
+    },
+    {
       "Id": "C:\\Users\\YUSSEF\\source\\repos\\TheBlogProject\\wwwroot\\css\\summernote-lite.min.css",
       "PackagePath": "staticwebassets\\css\\summernote-lite.min.css"
     },
@@ -247,6 +251,26 @@
     {
       "Id": "C:\\Users\\YUSSEF\\source\\repos\\TheBlogProject\\wwwroot\\img\\logo\\NUHEALTH-Logo.png",
       "PackagePath": "staticwebassets\\img\\logo\\NUHEALTH-Logo.png"
+    },
+    {
+      "Id": "C:\\Users\\YUSSEF\\source\\repos\\TheBlogProject\\wwwroot\\img\\logo\\Oserhir1.png",
+      "PackagePath": "staticwebassets\\img\\logo\\Oserhir1.png"
+    },
+    {
+      "Id": "C:\\Users\\YUSSEF\\source\\repos\\TheBlogProject\\wwwroot\\img\\logo\\Oserhir2.png",
+      "PackagePath": "staticwebassets\\img\\logo\\Oserhir2.png"
+    },
+    {
+      "Id": "C:\\Users\\YUSSEF\\source\\repos\\TheBlogProject\\wwwroot\\img\\logo\\Oserhir3.png",
+      "PackagePath": "staticwebassets\\img\\logo\\Oserhir3.png"
+    },
+    {
+      "Id": "C:\\Users\\YUSSEF\\source\\repos\\TheBlogProject\\wwwroot\\img\\logo\\Oserhir4.png",
+      "PackagePath": "staticwebassets\\img\\logo\\Oserhir4.png"
+    },
+    {
+      "Id": "C:\\Users\\YUSSEF\\source\\repos\\TheBlogProject\\wwwroot\\img\\logo\\OserhirDEVLOGO.png",
+      "PackagePath": "staticwebassets\\img\\logo\\OserhirDEVLOGO.png"
     },
     {
       "Id": "C:\\Users\\YUSSEF\\source\\repos\\TheBlogProject\\wwwroot\\img\\logo\\logo.png",
