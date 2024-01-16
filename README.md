@@ -22,7 +22,7 @@ The blog was built with ASP.NET MVC, C# and SQL, and utilises a role-based secur
 
 The front end was developed with HTML, JavaScript, CSS and Bootstrap (utilising a bootstrap template as a starting point). The backend utilises MVC and C#, with a SQLServer database.
 
-# Technologies:
+## Technologies:
 
 C#, SQL, ASP.NET MVC, JS, CSS, Bootstrap, HTML5
 
