@@ -10,3 +10,21 @@ The front end was developed with HTML, JavaScript, CSS and Bootstrap (utilising 
 
 C#, SQL, ASP.NET MVC, JS, CSS, Bootstrap, HTML5
 
+HomePage
+
+![Blog-Home](https://github.com/Oserhir/DeveloperBlog-ASP.NET-Core-MVC/assets/82850895/0ea01469-03e8-4d5a-a9c9-44e19044c256)
+
+Post
+
+![Blog-Post](https://github.com/Oserhir/DeveloperBlog-ASP.NET-Core-MVC/assets/82850895/0754b64b-75e4-44f1-928b-015674ff0cd7)
+
+List of Posts
+
+![ListofPosts](https://github.com/Oserhir/DeveloperBlog-ASP.NET-Core-MVC/assets/82850895/7acb8899-2723-4782-88f4-4aefa37748fe)
+
+Category
+
+![category](https://github.com/Oserhir/DeveloperBlog-ASP.NET-Core-MVC/assets/82850895/a87e9000-c1b1-418c-ac1f-7fd9591cee7c)
+
+
+
