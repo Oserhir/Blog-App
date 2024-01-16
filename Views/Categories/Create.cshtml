@@ -1,10 +1,13 @@
 ﻿@model TheBlogProject.Models.Category
 
+@using TheBlogProject.Services.Interfaces
+@inject IImageService imageService
+
 @{
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+@*<h1>Create</h1>
 
 <h4>Category</h4>
 <hr />
@@ -35,6 +38,51 @@
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
+*@
+
+
+<div class="d-flex align-items-center" style="margin-top : 45px; margin-bottom : 25px">
+    <a class="" style="color: rgb(23, 123, 227); margin-right : 15px; " >  
+        @*<i class="fa fa-arrow-left fa-lg" aria-hidden="true"></i>*@ </a>
+    <h4 class="mb-0">Create Category</h4>
+</div>
+
+    <div class="col-xl-6 col-lg-8">
+                        <div class="card profile-card card-bx m-b30">
+                            <form asp-action="Create" class="profile-form" enctype="multipart/form-data" >
+                                <div class="card-body">
+                                    <div class="row">
+
+                                        <!--title-->
+                                        <div class="form-group">
+                                            <label asp-for="title" class="form-label"></label>
+                                             <input asp-for="title" class="form-control" />
+                                             <span asp-validation-for="title" class="text-danger"></span>
+                                        </div>
+
+
+                                         <div class="col-sm-6 m-b30">  </div>
+
+                                        <div class="form-group " >
+                                                <label asp-for="Image" class="control-label" ></label>
+                                                <input asp-for="Image" class="form-control" type="file" accept=".png,.jpg,.jpeg,.gif" />
+                                                <span asp-validation-for="Image" class="text-danger"></span>
+                                         </div>
+
+                                    </div>
+                                </div>
+
+                                 <div style= "margin-top : 23px" class="card-footer">
+                                    <input type="submit" value="Create" class="btn btn-primary" />
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+
+
+
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

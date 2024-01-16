@@ -10,6 +10,7 @@ namespace TheBlogProject.Models
         public string? CategoryUserId { get; set; }
 
         [Required]
+        [Display ( Name = "Category Name")]
         [StringLength(30, ErrorMessage = "The {0} must be at least {2} and at most {1} characters.", MinimumLength =3)]
         public string title { get; set; }
 

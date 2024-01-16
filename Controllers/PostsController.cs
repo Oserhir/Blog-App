@@ -115,6 +115,12 @@ namespace TheBlogProject.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Title,CategoryId,Abstract,Content,ReadyStatus,Image")] Post post, List<string> tagValues)
         {
+
+            if(post.Image == null)
+            {
+                ModelState.AddModelError("Image", "Image field is required.");
+            }
+
             if (ModelState.IsValid)
             {
                 post.Created = DateTime.UtcNow;

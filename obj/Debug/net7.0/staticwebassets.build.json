@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "TqoYiYwrYmq18IUwCtDEaMKuvQArl/nS+zwZjeWCeeg=",
+  "Hash": "c0nU1nB1fzlja+RAwWwMowaR68n3xqe31IjlFD4Dh8M=",
   "Source": "TheBlogProject",
   "BasePath": "_content/TheBlogProject",
   "Mode": "Default",
@@ -1256,6 +1256,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\fontawesome-all.min.css"
+    },
+    {
+      "Identity": "C:\\Users\\YUSSEF\\source\\repos\\TheBlogProject\\wwwroot\\css\\LoginStyle.css",
+      "SourceId": "TheBlogProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\YUSSEF\\source\\repos\\TheBlogProject\\wwwroot\\",
+      "BasePath": "_content/TheBlogProject",
+      "RelativePath": "css/LoginStyle.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\LoginStyle.css"
     },
     {
       "Identity": "C:\\Users\\YUSSEF\\source\\repos\\TheBlogProject\\wwwroot\\css\\magnific-popup.css",

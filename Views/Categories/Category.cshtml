@@ -14,75 +14,79 @@
     ViewData["Title"] = "Category";
 }
 
-      <!-- main-area -->
-        <main class="fix">
+        @if ( Model.Any()  )
+        {
 
-            <!-- breadcrumb-area -->
-            <div class="breadcrumb-area">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="breadcrumb-content">
-                                <nav aria-label="breadcrumb">
-                                    <ol class="breadcrumb">
-                                        <li class="breadcrumb-item"><a >Home</a></li>
-                                        <li class="breadcrumb-item"><a  >Category</a></li>
-                                        <li class="breadcrumb-item active"  aria-current=""> <a asp-controller="Categories" asp-action="Category" asp-route-id="@Model.FirstOrDefault().CategoryId">@Model.FirstOrDefault().Category.title</a> </li>
-                                    </ol>
-                                </nav>
+
+              <!-- main-area -->
+            <main class="fix">
+
+                <!-- breadcrumb-area -->
+                <div class="breadcrumb-area">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="breadcrumb-content">
+                                    <nav aria-label="breadcrumb">
+                                        <ol class="breadcrumb">
+                                            <li class="breadcrumb-item"><a >Home</a></li>
+                                            <li class="breadcrumb-item"><a  >Category</a></li>
+                                            <li class="breadcrumb-item active"  aria-current=""> <a asp-controller="Categories" asp-action="Category" asp-route-id="@Model.FirstOrDefault().CategoryId">@Model.FirstOrDefault().Category.title</a> </li>
+                                        </ol>
+                                    </nav>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- breadcrumb-area-end -->
+                <!-- breadcrumb-area-end -->
 
-            <!-- blog-area -->
-            <section class="blog-area pt-60 pb-60">
-                <div class="container">
-                    <div class="author-inner-wrap">
-                        <div class="row justify-content-center">
-                            <div class="col-70">
-                                <div class="weekly-post-item-wrap">
+                <!-- blog-area -->
+                <section class="blog-area pt-60 pb-60">
+                    <div class="container">
+                        <div class="author-inner-wrap">
+                            <div class="row justify-content-center">
+                                <div class="col-70">
+                                    <div class="weekly-post-item-wrap">
 
 
-                            @foreach (var post in Model)
-                            {
+                                @foreach (var post in Model)
+                                {
 
-                                        <div class="weekly-post-item weekly-post-four">
-                                            <div class="weekly-post-thumb">
-                                              <a asp-action="Details"  asp-controller="Posts"  asp-route-id="@post.Id"><img src="@imageService.DecodeImage(post.ImageData,post.ImageType)" alt=""></a>
-                                            </div>
-                                            <div class="weekly-post-content">
-                                                <a asp-controller="Categories" asp-action= "Category" asp-route-id="@post.CategoryId" class="post-tag">@post.Category.title</a>
-                                                    <h2 class="post-title"><a asp-action="Details" asp-controller="Posts" asp-route-id="@post.Id"  >@post.Title</a></h2>
-                                                <div class="blog-post-meta">
-                                                    <ul class="list-wrap">
-                                                        <li><i class="flaticon-calendar"></i>@post.Created?.ToString("dd/mm/yyyy")</li>
-                                                    </ul>
+                                                <div class="weekly-post-item weekly-post-four">
+                                                    <div class="weekly-post-thumb">
+                                                      <a asp-action="Details"  asp-controller="Posts"  asp-route-id="@post.Id"><img src="@imageService.DecodeImage(post.ImageData,post.ImageType)" alt=""></a>
+                                                    </div>
+                                                    <div class="weekly-post-content">
+                                                        <a asp-controller="Categories" asp-action= "Category" asp-route-id="@post.CategoryId" class="post-tag">@post.Category.title</a>
+                                                            <h2 class="post-title"><a asp-action="Details" asp-controller="Posts" asp-route-id="@post.Id"  >@post.Title</a></h2>
+                                                        <div class="blog-post-meta">
+                                                            <ul class="list-wrap">
+                                                                <li><i class="flaticon-calendar"></i>@post.Created?.ToString("dd/mm/yyyy")</li>
+                                                            </ul>
+                                                        </div>
+                                                        <p>@post.Abstract</p>
+                                                        <div class="view-all-btn">
+                                                                              <a asp-action="Details"  asp-controller="Posts"  asp-route-id="@post.Id" class="link-btn">Read More
+                                                                <span class="svg-icon">
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" fill="none">
+                                                                        <path d="M1.07692 10L0 8.92308L7.38462 1.53846H0.769231V0H10V9.23077H8.46154V2.61538L1.07692 10Z" fill="currentColor" />
+                                                                        <path d="M1.07692 10L0 8.92308L7.38462 1.53846H0.769231V0H10V9.23077H8.46154V2.61538L1.07692 10Z" fill="currentColor" />
+                                                                    </svg>
+                                                                </span>
+                                                            </a>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                <p>@post.Abstract</p>
-                                                <div class="view-all-btn">
-                                                                      <a asp-action="Details"  asp-controller="Posts"  asp-route-id="@post.Id" class="link-btn">Read More
-                                                        <span class="svg-icon">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" fill="none">
-                                                                <path d="M1.07692 10L0 8.92308L7.38462 1.53846H0.769231V0H10V9.23077H8.46154V2.61538L1.07692 10Z" fill="currentColor" />
-                                                                <path d="M1.07692 10L0 8.92308L7.38462 1.53846H0.769231V0H10V9.23077H8.46154V2.61538L1.07692 10Z" fill="currentColor" />
-                                                            </svg>
-                                                        </span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
 
 
-                            }
+                                }
 
 
-                                </div>
+                                    </div>
 
 
-                             @*   <div class="pagination-wrap mt-60">
+                            @*   <div class="pagination-wrap mt-60">
                                     <nav aria-label="Page navigation example">
                                         <ul class="pagination list-wrap">
                                             <li class="page-item active"><a class="page-link" href="#">1</a></li>
@@ -95,7 +99,7 @@
                                 </div>
                             *@
 
-                        @Html.PagedListPager(Model, page => Url.Action("Category", new { id = Model.FirstOrDefault().Category.Id ,  page = page }),
+                            @Html.PagedListPager(Model, page => Url.Action("Category", new { id = Model.FirstOrDefault().Category.Id ,  page = page }),
                                         new PagedListRenderOptions
                                         {
                                             LiElementClasses = new string[] { "page-item" },
@@ -105,17 +109,20 @@
 
 
 
+                                </div>
+
+                               <!--SIDEBAR-->
+                                  <partial name="_Sidebar" />
+
+
                             </div>
-
-                           <!--SIDEBAR-->
-                              <partial name="_Sidebar" />
-
-
                         </div>
                     </div>
-                </div>
-            </section>
-            <!-- blog-area-end -->
+                </section>
+                <!-- blog-area-end -->
 
-             </main>
-        <!-- main-area-end -->
+                 </main>
+            <!-- main-area-end -->
+
+
+     }

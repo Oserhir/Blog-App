@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\TheBlogProject.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\YUSSEF\\source\\repos\\TheBlogProject\\wwwroot\\css\\LoginStyle.css",
+      "PackagePath": "staticwebassets\\css\\LoginStyle.css"
+    },
+    {
       "Id": "C:\\Users\\YUSSEF\\source\\repos\\TheBlogProject\\wwwroot\\css\\animate.min.css",
       "PackagePath": "staticwebassets\\css\\animate.min.css"
     },

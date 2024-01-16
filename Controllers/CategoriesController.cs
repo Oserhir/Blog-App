@@ -80,9 +80,16 @@ namespace TheBlogProject.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("title,Image")] Category category)
         {
+            if (category.Image == null)
+            {
+                ModelState.AddModelError("Image", "Image field is required.");
+            }
+
+            //NEED FIX: if i don't send image it need verify
             if (ModelState.IsValid)
             {
                 var slug = _slugService.UrlFriendly(category.title);
+
 
                 // Use the _imageService to store user image
                 category.ImageData = await _imageService.EncodeImageAsync(category.Image);
