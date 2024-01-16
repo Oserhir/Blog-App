@@ -40,7 +40,7 @@ C#, SQL, ASP.NET MVC, JS, CSS, Bootstrap, HTML5
 
 ![ListofPosts](https://github.com/Oserhir/DeveloperBlog-ASP.NET-Core-MVC/assets/82850895/7acb8899-2723-4782-88f4-4aefa37748fe)
 
-#### Category
+#### Categories
 
 ![category](https://github.com/Oserhir/DeveloperBlog-ASP.NET-Core-MVC/assets/82850895/a87e9000-c1b1-418c-ac1f-7fd9591cee7c)
 
